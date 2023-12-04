@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-ExtraBold.ttf") format("truetype");
+
+  font-family: "Poppins2";
+  src: url("/fonts/Poppins-Regular.ttf") format("truetype");
+}
+.paper {
+  width: 400px;
+  height: 300px;
+  background: linear-gradient(rgb(217, 217, 217), rgb(250, 250, 250));
+  margin: auto;
+  margin-top: 140px;
+  padding: 10px;
+  text-align: center;
+}
+nav {
+  font-family: "Poppins2";
+}
+h1 {
+  font-family: "Poppins";
+}
+.paper > h2 {
+  font-family: "Poppins";
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  font-size: 200%;
+}
+div {
+  margin: 3px;
+}
+.dropdown {
+  width: 130px;
+}
+.button {
+  margin-top: 20px !important;
+  background-color: rgb(36, 36, 36) !important;
+  color: white !important;
+}
+.button:hover {
+  color: rgb(36, 36, 36) !important;
+  background-color: white !important;
+}
+body {
+  background-color: rgb(14, 14, 14);
+}
+
+.MuiPaper-elevation1 {
+  box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.3) !important;
+}
