@@ -8,6 +8,7 @@ import {
   TextField,
 } from "@material-ui/core";
 import "./style.css";
+
 const Main = () => {
   const [text1, settext1] = useState(1);
   const [text2, settext2] = useState(1);
@@ -19,6 +20,24 @@ const Main = () => {
   useEffect(() => {
     getdata();
   }, []);
+
+  async function guardarConversion() {
+    try {
+      const response = await Axios.post(
+        "http://localhost/ENline/src/Conv.php",
+        {
+          moneda_origen: "USD",
+          moneda_destino: "EUR",
+          cantidad_origen: text1,
+          cantidad_destino: text2,
+        }
+      );
+      console.log(response.data); // Esto mostrará la respuesta del servidor
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async function getdata() {
     const result = await Axios.get(
       "http://data.fixer.io/api/latest?access_key=462a8f2c75c468b3922c272d04af1a67"
@@ -27,16 +46,18 @@ const Main = () => {
     setcountry(result.data.rates);
     setcountry2(result.data.rates);
   }
+
   function convert(e) {
     e.preventDefault();
     let num = (value2 / value1) * text1;
     settext2(num);
   }
+
   return (
     <div>
       <Paper className="paper">
         <h2>Covertidor de divisas</h2>
-        <form onSubmit={convert}>
+        <form onSubmit={guardarConversion}>
           <div>
             <TextField
               variant="outlined"
@@ -75,8 +96,18 @@ const Main = () => {
             </FormControl>
           </div>
           <Button type="submit" className="button" variant="contained">
+            Guardar
+          </Button>
+          <Button
+            type="button"
+            className="button"
+            variant="contained"
+            onClick={convert}
+          >
             Convertir
           </Button>
+          <br /> <br />
+          <div></div>
         </form>
       </Paper>
     </div>

@@ -6,6 +6,7 @@ import Singup from "./Singup";
 import Login from "./Login";
 import Main from "./Main";
 import Hero from "./Hero";
+import Dashboard from "./Dashboard";
 
 export default class NavbarC extends Component {
   render() {
@@ -35,9 +36,13 @@ export default class NavbarC extends Component {
                 <Nav.Link as={Link} to="/main">
                   Convert
                 </Nav.Link>
+                <Nav.Link as={Link} to="/Dashboard">
+                  Dashboard
+                </Nav.Link>
                 <Nav.Link as={Link} to="/login">
                   Login
                 </Nav.Link>
+
                 <Nav.Link as={Link} to="/singup">
                   Sing up
                 </Nav.Link>
@@ -58,6 +63,9 @@ export default class NavbarC extends Component {
             </Route>
             <Route path="/hero">
               <Hero />
+            </Route>
+            <Route path="/Dashboard">
+              <Dashboard />
             </Route>
           </Switch>
         </div>
