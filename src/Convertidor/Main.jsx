@@ -6,7 +6,7 @@ import {
   Paper,
   Select,
   TextField,
-} from "@material-ui/core";
+} from "@mui/material";
 import "./style.css";
 
 const Main = () => {
